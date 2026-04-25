@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>志愿者居住与意向参会地址调查问卷分析报告</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        h1 {
+            color: #1a73e8;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #333;
+            border-left: 4px solid #1a73e8;
+            padding-left: 12px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #666;
+            font-size: 16px;
+        }
+        .chart-container {
+            width: 45%;
+            display: inline-block;
+            margin: 20px 2%;
+            vertical-align: top;
+        }
+        .chart-container.full-width {
+            width: 96%;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        .summary {
+            background-color: #e8f0fe;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .recommendation {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .highlight {
+            color: #1a73e8;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>志愿者居住与意向参会地址调查问卷分析报告</h1>
+        <p style="text-align: center; color: #999;">分析日期：2026年4月26日 | 问卷编号：316104</p>
+        
+        <h2>一、问卷概况</h2>
+        <div style="display: flex; justify-content: space-around; margin: 20px 0;">
+            <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 8px; width: 20%;">
+                <div style="font-size: 36px; color: #1a73e8; font-weight: bold;">115</div>
+                <div style="color: #666; margin-top: 5px;">有效问卷数</div>
+            </div>
+            <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 8px; width: 20%;">
+                <div style="font-size: 36px; color: #4caf50; font-weight: bold;">8</div>
+                <div style="color: #666; margin-top: 5px;">行政区选项</div>
+            </div>
+            <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 8px; width: 20%;">
+                <div style="font-size: 36px; color: #ff9800; font-weight: bold;">9</div>
+                <div style="color: #666; margin-top: 5px;">圈层选项</div>
+            </div>
+            <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 8px; width: 20%;">
+                <div style="font-size: 36px; color: #9c27b0; font-weight: bold;">9</div>
+                <div style="color: #666; margin-top: 5px;">商圈选项</div>
+            </div>
+        </div>
+        
+        <h2>二、问题1：目前居住行政区分布</h2>
+        <div class="chart-container">
+            <h3>行政区分布饼图</h3>
+            <canvas id="districtChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>行政区分布柱状图</h3>
+            <canvas id="districtBarChart"></canvas>
+        </div>
+        
+        <table>
+            <thead>
+                <tr><th>排名</th><th>行政区</th><th>人数</th><th>占比</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>成华区</td><td>39</td><td>33.9%</td></tr>
+                <tr><td>2</td><td>高新区</td><td>16</td><td>13.9%</td></tr>
+                <tr><td>2</td><td>锦江区</td><td>16</td><td>13.9%</td></tr>
+                <tr><td>4</td><td>武侯区</td><td>14</td><td>12.2%</td></tr>
+                <tr><td>5</td><td>青羊区</td><td>11</td><td>9.6%</td></tr>
+                <tr><td>6</td><td>金牛区</td><td>9</td><td>7.8%</td></tr>
+                <tr><td>7</td><td>郫都区</td><td>7</td><td>6.1%</td></tr>
+                <tr><td>8</td><td>天府新区</td><td>3</td><td>2.6%</td></tr>
+            </tbody>
+        </table>
+        
+        <h2>三、问题2：居住环路圈层分布</h2>
+        <div class="chart-container full-width">
+            <h3>环路圈层分布</h3>
+            <canvas id="ringChart"></canvas>
+        </div>
+        
+        <table>
+            <thead>
+                <tr><th>排名</th><th>环路圈层</th><th>人数</th><th>占比</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>三环内</td><td>38</td><td>33.0%</td></tr>
+                <tr><td>2</td><td>二环内</td><td>35</td><td>30.4%</td></tr>
+                <tr><td>3</td><td>一环内</td><td>18</td><td>15.7%</td></tr>
+                <tr><td>4</td><td>绕城内</td><td>7</td><td>6.1%</td></tr>
+                <tr><td>5</td><td>华府大道外</td><td>6</td><td>5.2%</td></tr>
+                <tr><td>6</td><td>华府大道内</td><td>4</td><td>3.5%</td></tr>
+                <tr><td>6</td><td>绕城外</td><td>4</td><td>3.5%</td></tr>
+                <tr><td>8</td><td>天府三街内</td><td>2</td><td>1.7%</td></tr>
+                <tr><td>9</td><td>天府五街内</td><td>1</td><td>0.9%</td></tr>
+            </tbody>
+        </table>
+        
+        <h2>四、问题3：偏好商圈分布（多选）</h2>
+        <div class="chart-container full-width">
+            <h3>商圈偏好分布</h3>
+            <canvas id="businessChart"></canvas>
+        </div>
+        
+        <table>
+            <thead>
+                <tr><th>排名</th><th>商圈</th><th>选择次数</th><th>占比</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>市中心（天府广场、春熙路、盐市口一带）</td><td>70</td><td>18.7%</td></tr>
+                <tr><td>2</td><td>东门（建设路、万象城、东客站片区）</td><td>54</td><td>14.4%</td></tr>
+                <tr><td>3</td><td>西门（金沙、光华、中医大省医院片区）</td><td>42</td><td>11.2%</td></tr>
+                <tr><td>4</td><td>北门（火车北站、梁家巷、欢乐谷片区）</td><td>40</td><td>10.7%</td></tr>
+                <tr><td>5</td><td>南门（传统）（玉林、桐梓林、紫荆、新南天地等）</td><td>35</td><td>9.4%</td></tr>
+                <tr><td>6</td><td>金融城/交子公园（金融城双子塔、交子之环周边）</td><td>31</td><td>8.3%</td></tr>
+                <tr><td>7</td><td>世纪城/新会展（世纪城会展中心、天鹅湖、锦城湖片区）</td><td>26</td><td>7.0%</td></tr>
+                <tr><td>8</td><td>大源/软件园（天府*街、伊藤、世豪广场片区）</td><td>15</td><td>4.0%</td></tr>
+                <tr><td>9</td><td>华阳/麓湖（华阳老城、麓湖生态城、天府公园西）</td><td>11</td><td>3.0%</td></tr>
+            </tbody>
+        </table>
+        
+        <h2>五、综合分析</h2>
+        <div class="summary">
+            <h3>核心发现：</h3>
+            <ul>
+                <li><span class="highlight">居住分布集中于主城</span>：成华区以39人（33.9%）居首，高新区和锦江区各16人（13.9%），主城区（成华、锦江、青羊、武侯、金牛）合计占比77.4%</li>
+                <li><span class="highlight">圈层特征明显</span>：三环内和二环内占比最高（合计63.4%），传统主城区仍是居住核心区域</li>
+                <li><span class="highlight">商圈偏好均衡分布</span>：市中心最受欢迎（70次选择），东门、西门、北门也有较高选择率，呈现多点分布格局</li>
+                <li><span class="highlight">城南商圈潜力待挖掘</span>：金融城/交子公园、世纪城/新会展等城南商圈选择率相对较低，与居住分布形成反差</li>
+            </ul>
+        </div>
+        
+        <h2>六、未来会议选址建议</h2>
+        <div class="recommendation">
+            <h3>优先级排序：</h3>
+            <ol>
+                <li><span class="highlight">首选：市中心区域</span>
+                    <ul>
+                        <li>支持率最高（70次选择），交通枢纽核心位置</li>
+                        <li>天府广场、春熙路、盐市口一带，商业配套完善</li>
+                        <li>地铁1、2、3、4号线换乘中心，方便各区域参会</li>
+                    </ul>
+                </li>
+                <li><span class="highlight">次选：东门区域</span>
+                    <ul>
+                        <li>支持率第二（54次选择），成华区居住人口最多</li>
+                        <li>建设路、万象城、东客站片区，发展潜力大</li>
+                        <li>地铁2、4、7号线覆盖，交通便利</li>
+                    </ul>
+                </li>
+                <li><span class="highlight">备选：西门区域</span>
+                    <ul>
+                        <li>支持率第三（42次选择），覆盖青羊区、金牛区人群</li>
+                        <li>金沙、光华、中医大省医院片区，医疗文化配套丰富</li>
+                    </ul>
+                </li>
+            </ol>
+            <h3>注意事项：</h3>
+            <ul>
+                <li>考虑到成华区居住人口最多（39人），建议优先考虑东门和市中心选址</li>
+                <li>天府新区居住人口较少（仅3人），但可考虑作为拓展区域</li>
+                <li>建议优先选择地铁沿线地点，便于各区域志愿者参会</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>数据来源：志愿者调查问卷（问卷编号：316104）</p>
+            <p>分析时间：2026年4月26日</p>
+            <p>有效样本量：115份</p>
+        </div>
+    </div>
+    
+    <script>
+        new Chart(document.getElementById('districtChart'), {
+            type: 'pie',
+            data: {
+                labels: ['成华区', '高新区', '锦江区', '武侯区', '青羊区', '金牛区', '郫都区', '天府新区'],
+                datasets: [{
+                    data: [39, 16, 16, 14, 11, 9, 7, 3],
+                    backgroundColor: ['#1a73e8', '#4caf50', '#ff9800', '#9c27b0', '#e91e63', '#00bcd4', '#ff5722', '#607d8b']
+                }]
+            },
+            options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+        });
+        
+        new Chart(document.getElementById('districtBarChart'), {
+            type: 'bar',
+            data: {
+                labels: ['成华区', '高新区', '锦江区', '武侯区', '青羊区', '金牛区', '郫都区', '天府新区'],
+                datasets: [{ label: '人数', data: [39, 16, 16, 14, 11, 9, 7, 3], backgroundColor: '#1a73e8' }]
+            },
+            options: { responsive: true, scales: { y: { beginAtZero: true } } }
+        });
+        
+        new Chart(document.getElementById('ringChart'), {
+            type: 'bar',
+            data: {
+                labels: ['一环内', '二环内', '三环内', '绕城内', '绕城外', '天府三街内', '天府五街内', '华府大道内', '华府大道外'],
+                datasets: [{ label: '人数', data: [18, 35, 38, 7, 4, 2, 1, 4, 6], backgroundColor: ['#9c27b0', '#e91e63', '#ff9800', '#ff5722', '#607d8b', '#4caf50', '#1a73e8', '#00bcd4', '#795548'] }]
+            },
+            options: { responsive: true, indexAxis: 'y', scales: { x: { beginAtZero: true } } }
+        });
+        
+        new Chart(document.getElementById('businessChart'), {
+            type: 'bar',
+            data: {
+                labels: ['市中心', '西门', '北门', '东门', '南门（传统）', '金融城/交子公园', '世纪城/新会展', '大源/软件园', '华阳/麓湖'],
+                datasets: [{ label: '选择次数', data: [70, 42, 40, 54, 35, 31, 26, 15, 11], backgroundColor: ['#1a73e8', '#4caf50', '#ff9800', '#9c27b0', '#e91e63', '#00bcd4', '#ff5722', '#673ab7', '#8bc34a'] }]
+            },
+            options: { responsive: true, indexAxis: 'y', scales: { x: { beginAtZero: true } } }
+        });
+    </script>
+</body>
+</html>
